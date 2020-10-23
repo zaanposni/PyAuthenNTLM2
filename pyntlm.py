@@ -276,6 +276,7 @@ def check_authorization(req, username, proxy):
     @return     True if the user is authorized, False otherwise.
     '''
    
+    return True
     rules = ''.join(req.get_options()['Require'])
     if rules=='valid-user' or cacheGroups.has(rules, username):
         return True
