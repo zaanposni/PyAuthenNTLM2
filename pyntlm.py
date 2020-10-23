@@ -162,11 +162,12 @@ def parse_ntlm_authenticate(msg):
     return username, domain
 
 def set_remote_user(req, username, domain):
-    format = req.get_options().get('NameFmt', 'SAM').lower()
-    if format=='logon':
-        req.user = domain + '\\' + username
-    else:
-        req.user = username
+    #format = req.get_options().get('NameFmt', 'SAM').lower()
+    req.user = domain + '\\' + username
+    #if format=='logon':
+        #req.user = domain + '\\' + username
+    #else:
+        #req.user = username
 
 def decode_http_authorization_header(auth):
     '''Return a tuple with the parsed content of an HTTP Authorization header
